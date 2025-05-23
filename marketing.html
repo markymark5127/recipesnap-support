@@ -3,149 +3,117 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="description" content="RecipeSnap AI – Your Personal AI Outfit Checker. Match clothes, enhance outfits, and build confidence with fashion-powered AI.">
-  <title>RecipeSnap AI – Match Your Style With AI</title>
+  <title>Discover RecipeSnap AI</title>
   <style>
     body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: #f9f9f9;
-      color: #222;
-      line-height: 1.6;
+      background-color: #fefcff;
+      color: #333;
     }
-
     header {
-      background: white;
-      padding: 2rem 1rem;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-
-    header img {
-      height: 64px;
-      margin-bottom: 1rem;
-    }
-
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .tagline {
-      font-size: 1.1rem;
-      color: #555;
-    }
-
-    .button {
-      display: inline-block;
-      background: #007aff;
+      background-color: #7b2cbf;
       color: white;
-      padding: 0.75rem 1.5rem;
-      margin-top: 1.5rem;
-      text-decoration: none;
-      font-weight: 600;
-      border-radius: 8px;
-      transition: background 0.3s;
+      padding: 3rem 1rem 2rem;
+      text-align: center;
     }
-
-    .button:hover {
-      background: #005ecb;
-    }
-
-    section {
-      max-width: 800px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-    }
-
-    section h2 {
-      font-size: 2rem;
+    header img {
+      width: 100px;
+      height: auto;
       margin-bottom: 1rem;
     }
-
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0.5rem 0;
     }
-
-    .video-container video {
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+    header p {
+      font-size: 1.2rem;
+      margin: 0;
     }
-
-    .screenshot {
-      width: 100%;
-      max-width: 800px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      margin-top: 1rem;
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 2rem 1.5rem;
     }
-
-    footer {
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .feature {
+      background: white;
+      border-left: 5px solid #5a189a;
+      padding: 1.25rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .feature h3 {
+      color: #5a189a;
+      margin-top: 0;
+    }
+    .cta {
       text-align: center;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
+      margin: 3rem 0;
+    }
+    .cta a {
+      background-color: #5a189a;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    .cta a:hover {
+      background-color: #3c096c;
+    }
+    footer {
+      background-color: #eee;
+      text-align: center;
       color: #666;
-      border-top: 1px solid #eee;
+      padding: 1rem;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="RecipeSnapIcon.png" alt="RecipeSnap AI App Icon" />
-    <h1>RecipeSnap AI</h1>
-    <p class="tagline">AI Outfit Checker & Personal Style Assistant</p>
-    <a class="button" href="https://apps.apple.com/us/app/recipesnap-ai/id6745907418" target="_blank">Download on the App Store</a>
+    <img src="RecipeSnapIcon.png" alt="RecipeSnap AI Icon">
+    <h1>Welcome to RecipeSnap AI</h1>
+    <p>Turn your pantry into possibilities with just a photo.</p>
   </header>
 
-  <section>
-    <h2>🎯 Why RecipeSnap?</h2>
-    <p>Tired of guessing whether your clothes match? Let AI do the thinking. With RecipeSnap AI, just snap a photo and instantly know if your outfit works — or how it could look even better.</p>
-    <ul>
-      <li>✔️ Fast & fun outfit feedback</li>
-      <li>✔️ AI-generated improvement suggestions</li>
-      <li>✔️ Built for color-blind and fashion-curious users alike</li>
-    </ul>
-  </section>
+  <div class="container">
+    <h2>📸 How It Works</h2>
+    <p>Take a photo of your fridge, freezer, or pantry — RecipeSnap AI will analyze what ingredients you have and generate delicious recipes instantly, tailored to your dietary needs and preferences.</p>
 
-  <section>
-    <h2>📸 Live App Demo</h2>
-    <div class="video-container">
-      <video controls autoplay muted playsinline>
-        <source src="RecipeSnapDemo.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+    <div class="features">
+      <div class="feature">
+        <h3>🧠 Smart Recipe Generation</h3>
+        <p>Our AI understands what’s in your kitchen and suggests meal ideas based on the available items.</p>
+      </div>
+      <div class="feature">
+        <h3>🥗 Dietary Customization</h3>
+        <p>Whether you're vegan, vegetarian, pescatarian, or allergic to nuts or gluten — we’ve got you covered.</p>
+      </div>
+      <div class="feature">
+        <h3>📱 Simple & Fast</h3>
+        <p>Snap. Analyze. Cook. No need to type a single word. Just use your camera and go.</p>
+      </div>
+      <div class="feature">
+        <h3>🚫 No Waste, More Taste</h3>
+        <p>Use what you already have. Save money and reduce food waste while discovering new meals.</p>
+      </div>
     </div>
-  </section>
 
-  <section>
-    <h2>📱 Inside the App</h2>
-    <img src="enhanced-screenshot.png" alt="Enhanced Outfit Screenshot" class="screenshot" />
-    <img src="launchscreen.png" alt="RecipeSnap Launch Screen" class="screenshot" />
-  </section>
-
-  <section>
-    <h2>🔓 Unlock RecipeSnap+</h2>
-    <p>Subscribe to unlock powerful features like:</p>
-    <ul>
-      <li>✨ Unlimited outfit analyses</li>
-      <li>🚫 No ads</li>
-      <li>👗 AI-generated outfit suggestions</li>
-    </ul>
-    <p>Try it free inside the app!</p>
-  </section>
+    <div class="cta">
+      <p>Ready to cook smarter?</p>
+      <a href="#">Download on the App Store</a>
+    </div>
+  </div>
 
   <footer>
-    <p>Affiliate & Ad Disclosure: We use Amazon Affiliate links and Google AdMob for monetization. No personal identity or photos are ever stored.</p>
-    <p>Contact: <a href="mailto:markmayne@ymail.com">markmayne@ymail.com</a></p>
-    <p>© 2025 RecipeSnap AI</p>
+    &copy; 2025 RecipeSnap AI — Built with ❤️ to make cooking easier.
   </footer>
-
 </body>
 </html>
