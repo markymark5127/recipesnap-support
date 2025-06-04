@@ -49,4 +49,99 @@
     }
 
     footer {
-      padding: 2rem
+      padding: 2rem 1rem;
+      font-size: 0.875rem;
+      background: #f3f0ff;
+    }
+
+    #fallback {
+      display: none;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 10px 20px;
+      background-color: #7b2cbf;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
+  <script>
+    function getQueryParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name) || '';
+    }
+
+    function decodeList(param) {
+      return decodeURIComponent(param).split('|').filter(Boolean);
+    }
+
+    function tryOpenApp() {
+      const title = getQueryParam('title');
+      const ingredients = getQueryParam('ingredients');
+      const instructions = getQueryParam('instructions');
+
+      const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      const deepLink = `recipesnap://recipe?title=${encodeURIComponent(title)}&ingredients=${encodeURIComponent(ingredients)}&instructions=${encodeURIComponent(instructions)}`;
+
+      if (iOS) {
+        window.location = deepLink;
+        setTimeout(() => {
+          document.getElementById('fallback').style.display = 'block';
+        }, 1000);
+      } else {
+        document.getElementById('fallback').style.display = 'block';
+      }
+
+      // Populate fallback UI
+      document.getElementById('recipe-title').textContent = title || "Untitled Recipe";
+
+      const ingList = decodeList(ingredients);
+      const instList = decodeList(instructions);
+
+      const ingEl = document.getElementById('ingredients');
+      ingList.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        ingEl.appendChild(li);
+      });
+
+      const instEl = document.getElementById('instructions');
+      instList.forEach((step, i) => {
+        const li = document.createElement('li');
+        li.textContent = `${i + 1}. ${step}`;
+        instEl.appendChild(li);
+      });
+    }
+
+    window.onload = tryOpenApp;
+  </script>
+</head>
+<body>
+  <div id="fallback">
+    <header>
+      <img src="logo.png" alt="RecipeSnap AI Logo" class="logo" />
+      <h1 id="recipe-title"></h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>🥕 Ingredients</h2>
+        <ul id="ingredients"></ul>
+      </section>
+      <section>
+        <h2>👨‍🍳 Instructions</h2>
+        <ul id="instructions"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>Created and curated by <strong>RecipeSnap AI</strong></p>
+      <a class="cta-button" href="https://apps.apple.com/us/app/recipesnap-ai/id6746269787">Download the App</a>
+    </footer>
+  </div>
+</body>
+</html>
