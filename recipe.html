@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>RecipeSnap Link</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script>
+    window.onload = function () {
+      const params = new URLSearchParams(window.location.search);
+
+      const title = params.get("title") || "Recipe";
+      const ingredients = params.get("ingredients") || "";
+      const instructions = params.get("instructions") || "";
+
+      const deepLink = `recipesnap://recipe?title=${encodeURIComponent(title)}&ingredients=${encodeURIComponent(ingredients)}&instructions=${encodeURIComponent(instructions)}`;
+
+      console.log("🔗 Redirecting to:", deepLink);
+
+      // Try to open the app
+      window.location.href = deepLink;
+
+      // Optional fallback in 2 seconds
+      setTimeout(() => {
+        document.getElementById("fallback").style.display = "block";
+      }, 2000);
+    };
+  </script>
+</head>
+<body>
+  <h1>Opening RecipeSnap...</h1>
+  <p id="fallback" style="display:none;">
+    Didn't work? <a href="https://apps.apple.com/us/app/recipesnap-ai/id6746269787">Tap here to install RecipeSnap AI</a>
+  </p>
+</body>
+</html>
