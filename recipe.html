@@ -68,6 +68,24 @@
       border-radius: 8px;
       font-weight: bold;
     }
+    .cta {
+      text-align: center;
+      margin: 3rem 0;
+    }
+
+    .cta a {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+
+    .cta a:hover {
+      background-color: var(--accent-color);
+    }
   </style>
   <script>
   function getQueryParam(name) {
@@ -129,9 +147,13 @@
 <body>
   <div id="fallback">
     <header>
-      <img src="logo.png" alt="RecipeSnap AI Logo" class="logo" />
-      <h1 id="recipe-title"></h1>
-    </header>
+    <img src="RecipeSnapIcon.png" alt="RecipeSnap AI Icon">
+    <h1>RecipeSnap AI</h1>
+    <p>Turn Pantry Pics into Dinner Plans</p>
+    <div class="top-cta">
+      <a href="https://apps.apple.com/us/app/recipesnap-ai/id6746269787" target="_blank">Download on the App Store</a>
+    </div>
+  </header>
 
     <main>
       <section>
