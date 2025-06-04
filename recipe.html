@@ -123,6 +123,14 @@
     .section h2 {
       margin-bottom: 0.75rem;
     }
+    .recipe-title-heading {
+      font-size: 2rem;
+      color: var(--accent-color);
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: 600;
+    }
+
   </style>
   <script>
     function getQueryParam(name) {
@@ -192,8 +200,10 @@
         <a href="https://apps.apple.com/us/app/recipesnap-ai/id6746269787" target="_blank">Download on the App Store</a>
       </div>
     </header>
-    <h1 id="recipe-title">RecipeSnap AI</h1>
     <main>
+      <section class="section">
+        <h2 id="recipe-title" class="recipe-title-heading"></h2>
+      </section>
       <section class="section">
         <h2>🥕 Ingredients</h2>
         <ul id="ingredients"></ul>
