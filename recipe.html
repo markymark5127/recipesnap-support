@@ -21,25 +21,40 @@
       return param.split('|').map(item => item.trim()).filter(Boolean);
     }
 
-    function tryOpenApp() {
-      const title = getQueryParam('title');
-      const ingredients = getQueryParam('ingredients');
-      const instructions = getQueryParam('instructions');
+      function tryOpenApp() {
+        const title = getQueryParam('title');
+        const ingredients = getQueryParam('ingredients');
+        const instructions = getQueryParam('instructions');
 
-      const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-      const deepLink = `recipesnap://recipe?title=${encodeURIComponent(title)}&ingredients=${encodeURIComponent(ingredients)}&instructions=${encodeURIComponent(instructions)}`;
+        const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+        const android = /Android/.test(navigator.userAgent);
 
-      if (iOS) {
-        window.location = deepLink;
+        const deepLink = `recipesnap://recipe?title=${encodeURIComponent(title)}&ingredients=${encodeURIComponent(ingredients)}&instructions=${encodeURIComponent(instructions)}`;
+
+        const appStore = 'https://apps.apple.com/us/app/recipesnap-ai/id6746269787';
+        const playStore = 'https://play.google.com/store/apps/details?id=com.markmayne.recipesnap';
+        const storeURL = iOS ? appStore : android ? playStore : appStore;
+
+        document.querySelectorAll('.store-link').forEach(a => {
+          a.href = storeURL;
+          a.textContent = iOS ? 'Download on the App Store' : android ? 'Get it on Google Play' : 'Download the App';
+        });
+
+        if (iOS || android) {
+          window.location = deepLink;
+          setTimeout(() => {
+            if (document.visibilityState === 'visible') {
+              window.location = storeURL;
+            }
+          }, 1500);
+        }
+
         setTimeout(() => {
           document.getElementById('fallback').style.display = 'block';
-        }, 1000);
-      } else {
-        document.getElementById('fallback').style.display = 'block';
-      }
+        }, 2000);
 
-      // Populate fallback UI
-      document.getElementById('recipe-title').textContent = title || "Untitled Recipe";
+        // Populate fallback UI
+        document.getElementById('recipe-title').textContent = title || "Untitled Recipe";
 
       const ingList = decodeList(ingredients);
       const instList = decodeList(instructions);
@@ -71,7 +86,7 @@
       <h1>RecipeSnap AI</h1>
       <p>Turn Pantry Pics into Dinner Plans</p>
       <div class="top-cta">
-        <a href="https://apps.apple.com/us/app/recipesnap-ai/id6746269787" target="_blank">Download on the App Store</a>
+        <a class="store-link" href="https://apps.apple.com/us/app/recipesnap-ai/id6746269787" target="_blank">Download on the App Store</a>
       </div>
     </header>
     <main>
@@ -91,7 +106,7 @@
 
     <footer>
       <p>Created and curated by <strong>RecipeSnap AI</strong></p>
-      <a class="cta-button" href="https://apps.apple.com/us/app/recipesnap-ai/id6746269787">Download the App</a>
+      <a class="cta-button store-link" href="https://apps.apple.com/us/app/recipesnap-ai/id6746269787">Download the App</a>
       <br>
       <a href="terms.html">Terms of Use</a>
     </footer>
