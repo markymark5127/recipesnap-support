@@ -32,7 +32,7 @@
         const deepLink = `recipesnap://recipe?title=${encodeURIComponent(title)}&ingredients=${encodeURIComponent(ingredients)}&instructions=${encodeURIComponent(instructions)}`;
 
         const appStore = 'https://apps.apple.com/us/app/recipesnap-ai/id6746269787';
-        const playStore = 'https://play.google.com/store/apps/details?id=com.markmayne.recipesnap';
+        const playStore = 'https://play.google.com/store/apps/details?id=com.markmayne.recipesnapai';
         const storeURL = iOS ? appStore : android ? playStore : appStore;
 
         document.querySelectorAll('.store-link').forEach(a => {
